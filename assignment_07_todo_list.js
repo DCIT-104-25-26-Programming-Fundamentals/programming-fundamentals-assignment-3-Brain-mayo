@@ -81,4 +81,33 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+const readlineSync = require('readline-sync');
+
+function addTask(tasks) {
+    const task = readlineSync.question("Enter task: ");
+    tasks.push(task);
+    console.log(`Task added: "${task}"`);
+}
+
+function viewTasks(tasks) {
+    if (tasks.length === 0) {
+        console.log("Your task list is empty.");
+        return;
+    }
+
+    console.log("Your Tasks:");
+    for (let i = 0; i < tasks.length; i++) {
+        console.log(`${i + 1}. ${tasks[i]}`);
+    }
+}
+
+function deleteTask(tasks) {
+    if (tasks.length === 0) {
+        console.log("Your task list is empty.");
+        return;
+    }
+
+    viewTasks(tasks);
+
+    const taskNum = parseInt(readlineSync.question("Enter
 
